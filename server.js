@@ -79,6 +79,14 @@ app.post('/register', verifiePasAuthentification, async (req, res) => {
 app.delete('/logout', (req, res) => {
   req.session.destroy();
   
+  //users = []; //pour supprimer tous les utilisateurs
+  req.logOut();
+  res.redirect('/login')
+})
+
+/* app.delete('/logout', (req, res) => {
+  req.session.destroy();
+  
   for( let i = 0; i < users.length; i++){
     if ( users[i].username === req.user.username) {
       users.splice(i, 1); //pour supprimer tous l'utilisateur courant
@@ -86,6 +94,14 @@ app.delete('/logout', (req, res) => {
   }
   
   req.user = null;
+  //users = []; //pour supprimer tous les utilisateurs
+  req.logOut();
+  res.redirect('/login')
+}) */
+
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+
   //users = []; //pour supprimer tous les utilisateurs
   req.logOut();
   res.redirect('/login')
