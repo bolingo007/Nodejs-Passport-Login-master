@@ -1,0 +1,27 @@
+doctype html
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+  body
+    h1 Formulaire de connexion
+
+    -if(messages.error) {
+      | #{messages.error}
+    -}
+
+    form(class="form-signin" method="POST" action="/login")
+      div
+        label( for="input_user" class="sr-only") Nom d'utilisateur:
+        input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
+      div
+        label(for="input_password" class="sr-only") Mot de passe:
+        input(type="password" name="password" id="input_password" class="form-control" placeholder="Mot de passe" required)
+      div
+        button(type="submit") Se connecter
+
+      p
+        a(href='/') Retourner à l'accueil
+      p
+        a(href='/register') S'incrire

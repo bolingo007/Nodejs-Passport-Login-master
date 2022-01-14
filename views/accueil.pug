@@ -1,0 +1,21 @@
+doctype html
+html(lang="fr")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+	body
+		h1 Page d'accueil de la version public du site Web
+		if username
+			h2="Hi "+username
+		p
+			a(href='/login') Se connecter
+		p
+			a(href='/register') Créer un compte
+		p
+			a(href='/admin') Partie privée admin
+		p
+			if username
+				form(action="/logout?_method=DELETE" method="POST")
+					button(type="submit") Log Out
+
