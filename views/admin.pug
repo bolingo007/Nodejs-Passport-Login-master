@@ -1,10 +1,97 @@
-doctype html
-html(lang="fr")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+include menu
 
-    body
-        h1 Page d'admin sécurisée derrière un formulaire de connexion
-        h2 Bienvenue #{username}
-        a(href='/logout') Se déconnecter
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+  meta(name='description' content='Qualifications pour la Coupe du Monde de football(Soccer) au Qatar en fin 2022')
+  title  Qualifications pour la Coupe du Monde de Soccer 
+  // Latest compiled and minified CSS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  // jQuery library
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  // Popper JS
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+  // Latest compiled JavaScript
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+| h1 Page d&apos;admin s&eacute;curis&eacute;e derri&egrave;re un formulaire de connexion
+| h2 Bienvenue #{username}
+| a(href=&apos;/logout&apos;) Se d&eacute;connecter
+.container.text-justify
+  h1.text-center  Les qualifications pour la Coupe du Monde de football(soccer)
+  br
+  br
+  h2 Les nations et les qualifications
+  p(style='font-size: 1.2rem;')
+    | Le soccer est le sport utilisant un ballon le plus pratiqu&eacute; au monde.
+    | La 
+    strong FIFA
+    |  est l&apos;organisation non gouvernementale qui se charge du football &agrave; l&apos;&eacute;chelle plan&eacute;taire.
+    |             211 associations nationales sont affili&eacute;es &agrave; la FIFA.
+    |             De ces 211 &eacute;quipes, 32 seront au 
+    strong Qatar
+    |  en 2022 du lundi 21 novembre 2022 au dimanche 18 d&eacute;cembre 2022.
+    |             Depuis 1930 (premi&egrave;re &eacute;dition), 8 nations ont d&eacute;j&agrave; remport&eacute; le troph&eacute;e final.
+    |             Plusieurs pays s&apos;activent lors des qualifications pour participer &agrave; cette grande f&ecirc;te du 
+    strong soccer
+    | .
+    |             De ces pays, quelques nations pr&eacute;tendent remporter la fameuse coupe.
+    |             Les qualifications pour participer au tournoi au Qatar se passent dans tous les continents. C&apos;est la raison pour laquelle il une association de soccer dans chaque continent.
+  h2 Les associations continentales
+  p(style='font-size: 1.2rem;') Les places pour chaque association continentale sont r&eacute;parties comme suit :
+  .row.text-center
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title  AFC (Conf&eacute;d&eacute;ration asiatique de football) 
+          a(href='Asie.php')
+            img.card-img-top(src='./images/AFC_Asian_Qualifiers.png' alt='AFC qualifications zone Asie')
+          br
+          br
+          p.card-text 46 &eacute;quipes - 4 ou 5 qualifi&eacute;es (en plus du Qatar)
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title  CAF (Conf&eacute;d&eacute;ration africaine de football)
+          a(href='Afrique.php')
+            img.card-img-top(src='./images/CAF.jpg' alt='CAF qualifications zone Afrique')
+          br
+          br
+          p.card-text 54 &eacute;quipes - 5 qualifi&eacute;es
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title CONCACAF (Am&eacute;rique du Nord, Am&eacute;rique centrale et Cara&iuml;bes) 
+          a(href='Amerique.php')
+            img.card-img-top(src='./images/CONCACAF.png' alt='CONCACAF')
+          br
+          br
+          p.card-text 35 &eacute;quipes (avec le Canada) - 3 ou 4 qualifi&eacute;es
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title CONMEBOL (Am&eacute;rique du Sud)
+          a(href='Amerique.php')
+            img.card-img-top(src='./images/CONMEBOL.png' alt='CONMEBOL')
+          br
+          br
+          p.card-text 10 &eacute;quipes - 4 ou 5 qualifi&eacute;es
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title OFC (Conf&eacute;d&eacute;ration oc&eacute;anique de football)
+          a(href='https://fr.wikipedia.org/wiki/Conf%C3%A9d%C3%A9ration_du_football_d%27Oc%C3%A9anie')
+            img.card-img-top(src='./images/OFC.svg' alt='OFC')
+          br
+          br
+          p.card-text 0 ou 1 qualifi&eacute;e
+    .col-sm-6.col-lg-4.mb-3
+      .card.mb-3.h-100
+        .card-body
+          h4.card-title UEFA (Union des associations europ&eacute;ennes de football)
+          a(href='Europe.php')
+            img.card-img-top(src='./images/UEFA.jpg' alt='UEFA')
+          br
+          br
+          p.card-text 55 &eacute;quipes - 13 qualifi&eacute;es
+
+include footer

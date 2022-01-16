@@ -130,4 +130,32 @@ function verifiePasAuthentificationAdmin(req, res, next) {
   res.redirect('/admin')
 }
 
+// CEST LA QUE CA BOGUE PROBABLEMENT:
+
+app.get('/Afrique', verifiePasAuthentificationAdmin, (req, res) => {
+  res.render('Afrique.pug')
+})
+
+app.get('/Amerique', verifiePasAuthentificationAdmin, (req, res) => {
+  res.render('Amerique.pug')
+})
+
+app.get('/Asie', verifiePasAuthentificationAdmin, (req, res) => {
+  res.render('Asie.pug')
+})
+
+app.get('/Europe', verifiePasAuthentificationAdmin, (req, res) => {
+  res.render('Europe.pug')
+})
+
+app.get('/Historique', verifiePasAuthentificationAdmin, (req, res) => {
+  res.render('Historique.pug')
+})
+
+
+
+
+
+
+
 app.listen(3000)
