@@ -153,9 +153,4 @@ app.get('/Historique', verifiePasAuthentificationAdmin, (req, res) => {
 })
 
 
-
-
-
-
-
 app.listen(3000)

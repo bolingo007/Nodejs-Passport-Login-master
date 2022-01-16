@@ -1,3 +1,5 @@
+include menu
+
 doctype html
 html(lang="fr")
   head
@@ -18,32 +20,34 @@ html(lang="fr")
         input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
       div
         label(for="input_password" class="sr-only") Mot de passe:
-        input(type="password" name="password" id="input_password" class="pr-password" placeholder="Mot de passe" required)
+        input(type="password" name="password" id="input_password" class="form-control" placeholder="Mot de passe" required)
       div
         button(type="submit") Créer mon compte
     div
       <a href="/login">Login</a>
 
-$(function(){
-  $(".pr-password").passwordRequirements();
-});
+//- $(function(){
+//-   $(".pr-password").passwordRequirements();
+//- });
 
 
-$(".pr-password").passwordRequirements({
-  numCharacters: 8,
-  useLowercase:true,
-  useUppercase:true,
-  useNumbers:true,
-  useSpecial:true
-});
+//- $(".pr-password").passwordRequirements({
+//-   numCharacters: 8,
+//-   useLowercase:true,
+//-   useUppercase:true,
+//-   useNumbers:true,
+//-   useSpecial:true
+//- });
 
-$(".pr-password").passwordRequirements({
-  style:"dark"
-});
+//- $(".pr-password").passwordRequirements({
+//-   style:"dark"
+//- });
 
-$(".pr-password").passwordRequirements({
-  fadeTime: 500
-});
+//- $(".pr-password").passwordRequirements({
+//-   fadeTime: 500
+//- });
 
-  <script src="/path/to/cdn/jquery.min.js"></script>
-  <script src="js/jquery.passwordRequirements.min.js"></script>
+//- <script src="/path/to/cdn/jquery.min.js"></script>
+//- <script src="js/jquery.passwordRequirements.min.js"></script>
+
+include footer
