@@ -65,17 +65,19 @@ head
   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
   // Latest compiled JavaScript
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
-.navbar
-  a(href='#')
-    img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
-  a(href='/admin') Accueil
-  a(href='/Historique') Historique
-  .dropdown
-    button.dropbtn
-      | Qualifications 
-      i.fa.fa-caret-down
-    .dropdown-content
-      a(href='/Afrique') Zone Afrique
-      a(href='/Amerique') Zone Am&eacute;rique
-      a(href='/Asie') Zone Asie
-      a(href='/Europe') Zone Europe
+body
+  .navbar
+    a(href='#')
+      img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
+    a(href='/admin') Accueil
+    a(href='/Historique') Historique
+    .dropdown
+      button.dropbtn
+        | Qualifications 
+        i.fa.fa-caret-down
+      .dropdown-content
+        a(href='/Afrique') Zone Afrique
+        a(href='/Amerique') Zone Am&eacute;rique
+        a(href='/Asie') Zone Asie
+        a(href='/Europe') Zone Europe
+    a(href='/logout?_method=DELETE"') Déconnexion

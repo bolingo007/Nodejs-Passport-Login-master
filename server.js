@@ -2,13 +2,17 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
+
+app.use(express.static('public'));
 //d
 /* app.engine('pug', require('pug').__express)
 app.set('views', path.join(__dirname, 'views')); */
