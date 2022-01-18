@@ -73,20 +73,16 @@ app.get('/admin', verifiePasAuthentificationAdmin, (req, res) => {
 
 
 app.post('/register', verifiePasAuthentification, async (req, res) => {
-  /* const Outform = JSON.parse(JSON.stringify(req.body)) // pour retirer "[Object: null prototype]" de req.body
-    if (passwordStrength(Outform.passport).id < 2){
-      res.setHeader('register', 'bar')
-      res.send('Hello World!')
-        res.render('register',  {
-            error: 'Veuillez re-saisir car il est faible'
+   const Outform = JSON.parse(JSON.stringify(req.body)) // pour retirer "[Object: null prototype]" de req.body
+
+    if (passwordStrength(Outform.password).id < 2){
+      return res.render('register',  {
+            error: 'Veuillez re-saisir le mot de passe car il est faible'
           }
         )
-    } */
- 
+    }
 
   try {
-
-
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     users.push({
       id: Date.now().toString(),

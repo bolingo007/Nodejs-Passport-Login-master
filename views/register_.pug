@@ -13,8 +13,9 @@ html(lang="fr")
     -if(messages.error) {
       | #{messages.error}
     -}
-    h2=error
+
     div(class="password_Validation")
+      h3(style="color: red;")=error
       form(id="formRegister" class="password_Validation" method="POST" action="/register")
         div
           label( for="input_user" class="label_form") Nom d'utilisateur: 
@@ -29,27 +30,3 @@ html(lang="fr")
           button(type="button" onClick="validatePassword('input_password','error','formRegister')") Créer mon compte
       div
         <a href="/login">Login</a>
-
-//- $(function(){
-//-   $(".pr-password").passwordRequirements();
-//- });
-
-
-//- $(".pr-password").passwordRequirements({
-//-   numCharacters: 8,
-//-   useLowercase:true,
-//-   useUppercase:true,
-//-   useNumbers:true,
-//-   useSpecial:true
-//- });
-
-//- $(".pr-password").passwordRequirements({
-//-   style:"dark"
-//- });
-
-//- $(".pr-password").passwordRequirements({
-//-   fadeTime: 500
-//- });
-
-//- <script src="/path/to/cdn/jquery.min.js"></script>
-//- <script src="js/jquery.passwordRequirements.min.js"></script>
