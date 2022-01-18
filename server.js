@@ -11,8 +11,8 @@ const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const methodOverride = require('method-override')
-
 app.use(express.static('public'));
+const { passwordStrength } = require('check-password-strength');
 //d
 /* app.engine('pug', require('pug').__express)
 app.set('views', path.join(__dirname, 'views')); */
@@ -41,7 +41,13 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
 
+
 app.get('/', verifieAuthentification, (req, res) => {
+  /* //d
+  console.log(passwordStrength('aaaaAAA111/').id);
+  console.log(passwordStrength('aaaaAAA111/').value);
+  //f */
+
   res.render('accueil.pug', {
     username: req.user.username
   })
@@ -67,7 +73,20 @@ app.get('/admin', verifiePasAuthentificationAdmin, (req, res) => {
 
 
 app.post('/register', verifiePasAuthentification, async (req, res) => {
+  /* const Outform = JSON.parse(JSON.stringify(req.body)) // pour retirer "[Object: null prototype]" de req.body
+    if (passwordStrength(Outform.passport).id < 2){
+      res.setHeader('register', 'bar')
+      res.send('Hello World!')
+        res.render('register',  {
+            error: 'Veuillez re-saisir car il est faible'
+          }
+        )
+    } */
+ 
+
   try {
+
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
     users.push({
       id: Date.now().toString(),
