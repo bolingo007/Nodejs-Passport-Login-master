@@ -1,0 +1,92 @@
+
+doctype html
+html(lang="fr")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    link(rel='stylesheet' href='./css/appli.css')
+    script(src="./ValidationMotDePasse.js")
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+    // jQuery library
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+    // Popper JS
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js')
+    // Latest compiled JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+  style.
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+    .navbar {
+    overflow: unset;
+    background-color: #333;
+    }
+    .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    }
+
+nav.navbar.navbar-expand-md.bg-dark.px-5.py-0.mb-3.m-0.navbar-dark
+  .container-fluid
+    a.navbar-brand(href='#')
+      img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
+  ul.navbar-nav.text-capitalize.m-auto.text-size 
+    li.nav-item.hover-danger
+      a.nav-link(href="/login").text-white Connexion
+    li.nav-item.hover-danger
+      a.nav-link(href="/register").text-white S'enregistrer
+
+body
+  h2.text-center Qualification pour la Coupe du Monde de Soccer 2022
+  br
+  .col-md-6.mx-auto 
+    .card 
+      .card-head 
+        h4.card-title.text-center.mt-3= "Créer un compte"
+      .card-body
+        form(id="formRegister" class="password_Validation" method="POST" action="/register")
+          div
+            label(for="input_user" class="label_form") Nom d'utilisateur: 
+            input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
+          br
+          div
+            label(for="input_password" class="label_form") Mot de passe:
+            br 
+            input(type="password" name="password" id="input_password" class="password" placeholder="Mot de passe" required)
+            p(class="error" id="error")
+          p Votre mot de passe doit contenir:
+            ul 
+              li au moins 8 caractères.
+              li au moins une lettre minuscule.
+              li au moins une lettre majuscule.
+              li au moins un chiffre.
+              li au moins un caractère spécial.
+          br
+          div
+            button(type="submit" onClick="validatePassword('input_password','error','formRegister')").btn.btn-success Créer mon compte
+      .card-footer
+        a(href="/register").btn.btn-primary.mr-4 S'inscrire
+        a(href="/").btn.btn-outline-success Retour à l'acceuil
+
+
+    -if(messages.error) {
+      | #{messages.error}
+    -}
+    h2=error
+br    
+footer.container.footer-dark(style='background-color:#8ce48c;' width="100%")
+  .row
+    .col-sm-12.col-lg-4
+      a(href='#')
+        img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
+    .col-sm-12.col-lg-4
+      h5 O&ugrave; nous trouver
+      p  9999 rue de la Mer, St Jean
+    .col-sm-12.col-lg-4
+      p.copyright Beno&icirc;t Robichaud et Bertin Mouya Madi &copy; 2022
+
+      //- 1234!ABCd
