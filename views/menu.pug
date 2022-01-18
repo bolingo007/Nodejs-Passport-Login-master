@@ -69,6 +69,8 @@ body
   .navbar
     a(href='#')
       img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
+    if username
+      h2.text-white="Bonjour "+username
     a(href='/admin') Accueil
     a(href='/Historique') Historique
     .dropdown
