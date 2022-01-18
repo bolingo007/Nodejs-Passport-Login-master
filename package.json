@@ -10,13 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "bcrypt": "^5.0.1",
+=======
     "bcrypt": "^3.0.8",
     "check-password-strength": "^2.0.3",
+>>>>>>> c78fb5fd94ced860a908be795c4c09a393c060a4
     "ejs": "^2.6.2",
     "express": "^4.17.2",
     "express-flash": "0.0.2",
     "express-session": "^1.16.2",
-    "jade": "^1.11.0",
     "method-override": "^3.0.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
