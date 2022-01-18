@@ -1,0 +1,27 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8" content-type="application/javascript")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        link(rel='stylesheet' href='./css/appli.css')
+        script(src="ValidationMotDePasse.js")
+
+    body
+        h1 Formulaire de connexion
+
+        -if(messages.error) {
+            | #{messages.error}
+        -}
+        form(id="formEssai" class="password_Validation" method="POST" action="/footer")
+            div
+                input(class="password" type="password" name="password" id="password")
+                button(type="button" onClick="validatePassword('password','error','formEssai')") Submit
+            div
+                p(class="error" id="error")
+//
+    form(id="formEssai" class="password_Validation" method="POST" action="/footer")
+        div
+            input(class="password" type="password" name="password" id="password")
+            button(type="button" onClick="validatePassword('password','error','formEssai')") Submit
+        div
+            p(class="error" id="error")
