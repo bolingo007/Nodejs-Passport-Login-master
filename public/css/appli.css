@@ -1,22 +1,22 @@
 .password_Validation {
-    background-color: aliceblue;
-    padding: 50px;
-    border: 1px solid;
-    border-radius: 5px;
+  background-color: aliceblue;
+  padding: 50px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 #passwordText {
-    color: green;
+  color: green;
 }
 
 .error {
-    color: red;
+  color: red;
 }
 
 .password {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 .label_form {
-    font-weight: bold;
+  font-weight: bold;
 }
