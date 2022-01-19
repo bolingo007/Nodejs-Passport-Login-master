@@ -1,9 +1,12 @@
 
-function validatePassword(password,errorText,formSubmit){
+function validatePassword(password,errorText,formSubmit, username){
     
   let InputValue = document.getElementById(password).value;
+  let InputUsername = document.getElementById(username).value;
   let regex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*»/?()])(?=.{8,})");
   let regexSpecial = new RegExp("^(?=.*[!@#\$%\^&\*»/?()])");
+  let specialChars = /[^a-zA-Z0-9]/g;
+
   let errors = [];
 
    if (InputValue.length < 8) {
@@ -21,11 +24,21 @@ function validatePassword(password,errorText,formSubmit){
    if (!regexSpecial.test(InputValue)) {
        errors.push("Le mot de passe doit avoir au moins un caractère spécial."); 
    }
+   if (document.formRegister.input_user.value.match(specialChars)) {
+      errors.push("Username invalid, il les caractères alphanumériques");
+      document.formRegister.input_user.focus();
+   }
    if (errors.length > 0) {
        document.getElementById(errorText).innerHTML = errors.join("<br/>");
        return false;
    }
 
+  /*  if (document.formRegister.input_user.value.match(specialChars)) {','
+        document.getElementById(errorText).innerHTML = "Username invalid, il les caractères alphanumériques";
+        document.formRegister.input_user.focus();
+        return false;
+   }
+ */
   if(!regex.test(InputValue)) {
        document.getElementById(errorText).innerHTML = "Invalid Password";
        return false;

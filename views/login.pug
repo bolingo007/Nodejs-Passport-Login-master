@@ -34,46 +34,47 @@ nav.navbar.navbar-expand-md.bg-dark.px-5.py-0.mb-3.m-0.navbar-dark
     a.navbar-brand(href='#')
       img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
   ul.navbar-nav.text-capitalize.m-auto.text-size 
-      li.nav-item.hover-danger
-        a.nav-link(href="/login").text-white Connexion
-      li.nav-item.hover-danger
-        a.nav-link(href="/register").text-white S'enregistrer
-        
+    li.nav-item.hover-danger
+      a.nav-link(href="/login").text-white Connexion
+    li.nav-item.hover-danger
+      a.nav-link(href="/register").text-white S'enregistrer
+
 body
-    h2.text-center Qualification pour la Coupe du Monde de Soccer 2022
-    br
-    .col-md-6.mx-auto 
-      .card 
-        .card-head 
-          h4.card-title.text-center.mt-3= "Formulaire de connexion"
-        .card-body
-          form(class="password_Validation" id="formLogin" method="POST" action="/login")
-            div
-              label( for="input_user" class="sr-only") Nom d'utilisateur: 
-              input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
-            br
-            div
-              label(for="input_password" class="sr-only") Mot de passe: 
-              input(type="password" name="password" id="input_password" class="form-control" placeholder="Mot de passe" required)
-            br
-            div
-              button(type="submit").btn.btn-success Se connecter
-        .card-footer
-          a(href="/register").btn.btn-primary.mr-4 S'inscrire
-          a(href="/").btn.btn-outline-success Retour à l'acceuil
+  h2.text-center Qualification pour la Coupe du Monde de Soccer 2022
+  br
+  .col-md-6.mx-auto 
+    .card 
+      .card-head 
+        h3.card-title.text-center.mt-3= "Formulaire de connexion"
+        h4.text-danger.text-center=error
+      .card-body
+        form(class="password_Validation" id="formLogin" method="POST" action="/login")
+          div
+            label( for="input_user" class="sr-only") Nom d'utilisateur: 
+            input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
+          br
+          div
+            label(for="input_password" class="sr-only") Mot de passe: 
+            input(type="password" name="password" id="input_password" class="form-control" placeholder="Mot de passe" required)
+          br
+          div
+            button(type="submit").btn.btn-success Se connecter
+      .card-footer
+        a(href="/register").btn.btn-primary.mr-4 S'inscrire
+        a(href="/").btn.btn-outline-success Retour à l'acceuil
 
 
-    -if(messages.error) {
-      | #{messages.error}
-    -}
+  -if(messages.error) {
+    | #{messages.error}
+  -}
 br    
 footer.container.footer-dark(style='background-color:#8ce48c;' width="100%")
-    .row
-      .col-sm-12.col-lg-4
-        a(href='#')
-          img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
-      .col-sm-12.col-lg-4
-        h5 O&ugrave; nous trouver
-        p  9999 rue de la Mer, St Jean
-      .col-sm-12.col-lg-4
-        p.copyright Beno&icirc;t Robichaud et Bertin Mouya Madi &copy; 2022
+  .row
+    .col-sm-12.col-lg-4
+      a(href='#')
+        img.card-img-top(src='./images/ballons.jpg' alt='logo' style='width:100px;height:50px;')
+    .col-sm-12.col-lg-4
+      h5 O&ugrave; nous trouver
+      p  9999 rue de la Mer, St Jean
+    .col-sm-12.col-lg-4
+      p.copyright Beno&icirc;t Robichaud et Bertin Mouya Madi &copy; 2022

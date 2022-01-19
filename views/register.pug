@@ -46,9 +46,10 @@ body
   .col-md-6.mx-auto 
     .card 
       .card-head 
-        h4.card-title.text-center.mt-3= "Créer un compte"
+        h3.card-title.text-center.mt-3= "Créer un compte"
+        h4.text-danger.text-center=error
       .card-body
-        form(id="formRegister" class="password_Validation" method="POST" action="/register")
+        form(id="formRegister" name="formRegister" class="password_Validation" method="POST" action="/register")
           div
             label(for="input_user" class="label_form") Nom d'utilisateur: 
             input(type="string" name="username" id="input_user" class="form-control" placeholder="Nom d'utilisateur" required autofocus)
@@ -67,7 +68,7 @@ body
               li au moins un caractère spécial.
           br
           div
-            button(type="submit" onClick="validatePassword('input_password','error','formRegister')").btn.btn-success Créer mon compte
+            button(type="button" onClick="validatePassword('input_password','error','formRegister','input_user')").btn.btn-success Créer mon compte
       .card-footer
         a(href="/register").btn.btn-primary.mr-4 S'inscrire
         a(href="/").btn.btn-outline-success Retour à l'acceuil
@@ -76,7 +77,7 @@ body
     -if(messages.error) {
       | #{messages.error}
     -}
-    h2=error
+
 br    
 footer.container.footer-dark(style='background-color:#8ce48c;' width="100%")
   .row

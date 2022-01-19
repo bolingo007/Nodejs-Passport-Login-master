@@ -5,7 +5,7 @@ function initialize(passport, getUserByUsername, getUserById) {
   const authenticateUser = async (username, password, done) => {
     const user = getUserByUsername(username)
 
-    //Si aucune utilisateur a été trouvé avec le username reçu
+    //Si aucun utilisateur a été trouvé avec le username reçu
     if (user == null) {
       return done(null, false, { message: "Ce nom d'utilisateur n'existe pas"})
     }
