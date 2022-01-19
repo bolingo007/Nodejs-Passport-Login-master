@@ -1,0 +1,18 @@
+doctype html
+html(lang="fr")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+	body
+		h1 Page d'accueil d'attente après plusieurs essais de connexion sans succès
+		if username
+			h2="Hi "+username
+		p Attendre  
+			span=minutes 
+			| &nbsp;minutes avant de re essayer de se connecter, la connexion sera disponible à &nbsp;
+			span=temps
+			br
+			a(href='/login') Se connecter
+			form(action="/login" method="POST")
+				button(type="submit") Se connecter

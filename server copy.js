@@ -41,6 +41,11 @@ app.use(methodOverride('_method'))
 
 
 app.get('/', verifieAuthentification, (req, res) => {
+  /* //d
+  console.log(passwordStrength('aaaaAAA111/').id);
+  console.log(passwordStrength('aaaaAAA111/').value);
+  //f */
+
   res.render('accueil.pug', {
     username: req.user.username
   })
@@ -59,7 +64,7 @@ const NOMBRE_CONNEXION_MAX = parseInt(3);
 const TEMPS_MAX = parseInt(1);
 
 if(!process.env.thisCompteur){
-  process.env.thisCompteur  = parseInt(1);
+  process.env.thisCompteur  = parseInt(0);
 }
 if(!process.env.thisUsername){
   process.env.thisUsername  = "";
@@ -73,27 +78,32 @@ app.get('/login', verifiePasAuthentification, (req, res) => {
       res.render('login.pug')
 })
 
-if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX){
+if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX && process.env.thisTemps <= new Date()){
+//if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX){
   app.post('/login', verifiePasAuthentification, function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
       if (err) {return next(err); }
       if (!user) {
-        if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX){
-        //if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX && process.env.thisTemps <= new Date()){
+        //if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX){
+        if(process.env.thisCompteur < NOMBRE_CONNEXION_MAX && process.env.thisTemps <= (new Date()).getTime()){
             process.env.thisCompteur = parseInt(process.env.thisCompteur) + parseInt(1); 
+            // console.log("info: "+process.env.thisCompteur+" "+info);
+            // console.log(parseInt(process.env.thisCompteur) +"  "+ parseInt(NOMBRE_CONNEXION_MAX));
             return res.redirect('/login');
         } else{
             let temps = new Date();
             temps.setMinutes(temps.getMinutes() + TEMPS_MAX);
-            process.env.thisTemps = temps;
-            process.env.thisCompteur = parseInt(1); 
+            process.env.thisTemps = temps.getTime();
+            process.env.thisCompteur = parseInt(0); 
+            console.log("count: "+process.env.thisCompteur+" process.env.thisTemps: "+process.env.thisTemps);
+            // console.log(req.body);
             process.env.thisUsername = JSON.parse(JSON.stringify(req.body)).username;
             return res.redirect('/accueil2'); 
         }
       }
       req.logIn(user, function(err) {
         if (err) {return next(err); }
-        process.env.thisCompteur = parseInt(1); 
+        process.env.thisCompteur = parseInt(0); 
         console.log("OK"); 
         return res.redirect('/');
       });
